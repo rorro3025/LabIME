@@ -79,6 +79,28 @@ logout.addEventListener('click', e =>{
                 });
 });
 
+// funcion de impresion
+const studen_list = document.querySelector('.ls_alumnos');
+const setup_students = data => {
+    if(data.length){
+        let html = '';
+        data.forEach((doc) => {
+            const estu = doc.data();
+            const li = `
+            <li class="list-group-item list-group-item-action">
+              <h5>${estu.Nombre}</h5>
+              <p>${estu.Correo}</p>
+              <p>${estu.Carrera}</p>
+            </li>
+          `;
+        html += li;
+        });
+        studen_list.innerHTML = html;
+    }else{
+        studen_list.innerHTML = 'Inicia sesion por favor';
+    }
+}
+
 // consulta BD 
 
 const ls = document.querySelector('.ls_alumnos');
@@ -88,7 +110,11 @@ const ls = document.querySelector('.ls_alumnos');
 
 auth.onAuthStateChanged(user =>{
     if (user){
-        console.log("sesion on");
+        fs.collection('estudiantes')
+        .get()
+        .then((snapshot) =>{
+            setup_students(snapshot.docs);
+        });
     }else{
         console.log("sesion cerrada");
     }
