@@ -40,7 +40,7 @@
             <a class="nav-link" href="#" data-toggle="modal" data-target="#singup-window">Registrar usuario</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Cerrar sesion</a>
+            <a class="nav-link" href="#" id="logout">Cerrar sesion</a>
           </li>
         </ul>
       </div>
@@ -62,8 +62,7 @@
               <input type="email" name="mail" id="login-mail" class="form-control" placeholder="email" required>
             </div>
             <div class="form-group">
-              <input type="password" name="pass" id="login-pass" class="form-control" placeholder="contraseña"
-                required>
+              <input type="password" name="pass" id="login-pass" class="form-control" placeholder="contraseña" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
           </form>
@@ -99,16 +98,17 @@
   <div class="container bg-light">
     <h1>Historia de la UNAM</h1>
   </div>
+  <!-- contenedor de informacion principal -->
   <div class="container container bg-light border-indigo">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h6>Lista de alumnos</h6>
+        <ul class="ls_alumnos">
 
+        </ul>
+      </div>
+    </div>
   </div>
-  <!--
-        Acatlan 0
-        Aragon   1
-        Cuautitlan (I y IV) 2 3
-        Iztacala 4
-        Zaragoza 5 
-      -->
   <div class="cotainer">
     <div class="row">
       <div class="col-sm-3">
@@ -211,6 +211,7 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -228,6 +229,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const fs = firebase.firestore();
     firebase.analytics();
   </script>
   <script src="main.js"></script>
