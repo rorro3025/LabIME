@@ -97,13 +97,24 @@ const setup_students = data => {
         });
         studen_list.innerHTML = html;
     }else{
-        studen_list.innerHTML = 'Inicia sesion por favor';
+        studen_list.innerHTML = '<h1> Inicia sesion por favor </h1>';
     }
 }
 
-// consulta BD 
+// Login with google 
 
-const ls = document.querySelector('.ls_alumnos');
+const log_google = document.querySelector('#google_sing');
+log_google.addEventListener('click', e => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+    .then(result =>{
+      console.log("google sing correcto");
+      $('#singin-window').modal('hide');
+    })
+    .catch(error =>{
+      console.log(error);
+    });
+})
 
 
 // eventos (sesion iniciada o no )
@@ -116,6 +127,6 @@ auth.onAuthStateChanged(user =>{
             setup_students(snapshot.docs);
         });
     }else{
-        console.log("sesion cerrada");
+        setup_students([]);
     }
 })
