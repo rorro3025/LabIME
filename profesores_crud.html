@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Header cabecera -->
+    <div class="container-fluid" style="Background-color:#003366;">
+        <p align="left"><a href="index.html"><img src="img/logounam.png" alt="UNAM" width="424" height="130" border="0"
+                    longdesc="LOGOUNAM"></a></p>
+    </div>
+    <!-- Barra de navegacion -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav justify-content-end ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout">Cerrar sesion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Contenido proncipal -->
+    <div class="container container bg-light border-indigo">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h6>Alta de profesores</h6>
+                <div class="dropdown">
+                    <form id="professor-form" class="px-4 py-3">
+                        <div class="form-group">
+                            <input type="text" name="name_prof" id="name_form_prof" class="form-control"
+                                placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="mail" id="email_form_prof" class="form-control" placeholder="email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="pass" id="pass_form_prof" class="form-control"
+                                placeholder="contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registar</button>
+                    </form>
+                </div>
+                <div class="container">
+                    <ul class="ls_teach">
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Contenido de footer -->
+    <div class="footer-top">
+        <div class="container-fluid">
+            <h3>Social</h3>
+            <img src="img/icons_2.png">
+        </div>
+    </div>
+    <div class="copy-right">
+        <div class="container">
+            <p>© 2019 UNAM. Todos los derechos reservados | Rodrigo Hernández Olguín.</p>
+        </div>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBitE7sLGG_46fV9dbp-rr8tYILcqHlOiU",
+            authDomain: "project-test-3bb76.firebaseapp.com",
+            databaseURL: "https://project-test-3bb76.firebaseio.com",
+            projectId: "project-test-3bb76",
+            storageBucket: "project-test-3bb76.appspot.com",
+            messagingSenderId: "971538913788",
+            appId: "1:971538913788:web:1f5c43d43362cd9a293a79",
+            measurementId: "G-BPZ1RBELGN"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const fs = firebase.firestore();
+        firebase.analytics();
+    </script>
+    <script src="main_2.js"></script>
+</body>
+
+</html>
